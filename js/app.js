@@ -37,7 +37,7 @@
       '<div class="f_info"><ul class="info_wrap"><li><p><span class="bold">회사명</span><span class="light">' + S.name + '</span></p><p><span class="bold">대표자</span><span class="light">○○○</span></p><p><span class="bold">대표번호</span><span class="light">' + S.tel + '</span></p><p><span class="bold">FAX</span><span class="light">' + S.fax + '</span></p></li>' +
       '<li><p><span class="bold">대표이메일</span><span class="light">' + S.email + '</span></p><p><span class="bold">주소</span><span class="light"><i>본사ㆍ연구소 : ' + S.address + '</i></span></p></li></ul>' +
       '<p class="copyright white light upper">Copyright © ' + S.name + '. All rights reserved.</p></div></div></div></div>' +
-      '<div class="ks_proto">PROTOTYPE · 문구와 이미지는 예시입니다</div>';
+      '<div class="ks_proto"><b>PROTOTYPE</b>문구와 이미지는 예시입니다<span>새로고침은 <kbd>Shift</kbd>+<kbd>F5</kbd></span></div>';
   }
 
   /* ---------- 하위 페이지 ---------- */

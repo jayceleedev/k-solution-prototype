@@ -165,7 +165,11 @@ html{background:#fff;color-scheme:light;}
 .ks_newslist li a .src i{font-size:1.3rem;color:#666;margin-right:26px;}
 
 /* 예시 표시 */
-.ks_proto{position:fixed;left:14px;bottom:14px;z-index:99999999;background:rgba(0,45,130,.92);color:#fff;font-size:12px;line-height:1;padding:9px 14px;border-radius:20px;letter-spacing:.02em;box-shadow:0 4px 14px rgba(0,0,0,.25);}
+.ks_proto{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:99999999;width:max-content;max-width:calc(100vw - 28px);box-sizing:border-box;background:rgba(0,45,130,.95);color:#fff;font-size:16px;line-height:1.45;font-weight:600;text-align:center;padding:13px 28px;border-radius:30px;letter-spacing:.01em;box-shadow:0 6px 20px rgba(0,0,0,.3);}
+.ks_proto b{font-weight:800;letter-spacing:.06em;margin-right:10px;}
+.ks_proto span{display:inline-block;margin-left:14px;padding-left:14px;border-left:1px solid rgba(255,255,255,.45);font-weight:400;}
+.ks_proto kbd{display:inline-block;font:inherit;font-weight:700;background:rgba(255,255,255,.18);border-radius:5px;padding:1px 8px;margin:0 2px;}
+@media screen and (max-width:700px){.ks_proto{font-size:13px;padding:10px 16px;border-radius:16px;bottom:10px;}.ks_proto span{display:block;margin:2px 0 0;padding:0;border:0;}}
 .ks_note{font-size:.8rem;color:#999;margin-top:18px;}
 
 @media screen and (max-width:1000px){
