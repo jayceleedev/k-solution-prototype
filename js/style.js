@@ -92,7 +92,8 @@ html{background:#fff;color-scheme:light;}
 .s214 .ks_info{width:100%;border-radius:6px;overflow:hidden;background:#f3f5f9;}
 .s214 .ks_info img{width:100%;display:block;}
 
-.s214 .ks_info2{margin-top:70px;}
+.s214 .ks_info2{margin-top:70px;margin-bottom:90px;}
+.s214 .ks_info2:has(svg){position:relative;left:50%;transform:translateX(-50%);}
 
 /* 연구소 원형 도식: 가운데 사진을 자체 이미지로 쓰므로 둥글게 자르고 글자가 보이게 어둡게 한다 */
 .ks_lab .s412 .s412-inner img{aspect-ratio:1/1;object-fit:cover;border-radius:50%;filter:brightness(.5) saturate(.9);}
@@ -138,7 +139,7 @@ html{background:#fff;color-scheme:light;}
 .ks_flowsvg .orb.o3{stroke-dasharray:1.5 6;}
 .ks_flowsvg .orb.o2{stroke:#002d82;stroke-opacity:.3;}
 .ks_flowsvg .orb.o1{fill:rgba(55,143,255,.07);stroke:#378fff;stroke-opacity:.6;}
-.s214 .ks_info:has(svg){background:none;overflow:visible;padding:10px 0;width:140%;margin-left:-20%;}
+.s214 .ks_info:has(svg){background:none;overflow:visible;padding:10px 0;flex:none;width:min(1060px,90vw);margin:0;}
 .ks_flowsvg.ks_big .tit{font-size:24px;}
 .ks_flowsvg.ks_big .desc{font-size:16.5px;}
 .ks_flowsvg.ks_big .no{font-size:14px;}

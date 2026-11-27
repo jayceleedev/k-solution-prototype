@@ -22,17 +22,17 @@
   /* 공중ㆍ지상ㆍ해상이 하나의 체계로 모이는 도식. ops=true 이면 아래에 적은 인원의 운용자를 붙인다 */
   var convergeSvg = function (ops) {
     var cols = [[250, '공중', '요격드론 ㆍ 공격드론 ㆍ 장거리 드론', ICO.air], [600, '지상', '전투 로봇 ㆍ 매복형 드론 ㆍ 감시 스테이션', ICO.land], [950, '해상', '해상드론 ㆍ 감시 부이 ㆍ 해저 센서', ICO.sea]];
-    var h = ops ? 650 : 500, ny = 200, hy = 410;
+    var h = ops ? 740 : 590, ny = 200, hy = 410;
     var top = cols.map(function (c, i) {
       return '<text class="no" x="' + c[0] + '" y="44">0' + (i + 1) + '</text><text class="tit" x="' + c[0] + '" y="78">' + c[1] + '</text><text class="desc" x="' + c[0] + '" y="104">' + c[2] + '</text>' +
         '<path class="conn" d="M' + c[0] + ' ' + (ny + 66) + 'C' + c[0] + ' ' + (hy - 80) + ' 600 ' + (ny + 90) + ' 600 ' + (hy - 74) + '"/><circle class="pin" cx="' + c[0] + '" cy="' + (ny + 66) + '" r="4"/>' +
         svgNode(c[0], ny, 40, i % 2, c[3]);
     }).join('');
     var hub = svgNode(600, hy, 48, 0, ICO.hub) +
-      '<text class="tit l" x="690" y="' + (hy - 2) + '">' + (ops ? '통합 지휘통제' : '체계') + '</text><text class="desc l" x="690" y="' + (hy + 24) + '">' + (ops ? '모든 자산을 하나의 화면으로' : '통합 운용 체계로 하나로 묶습니다') + '</text>';
-    var op = !ops ? '' : '<line class="drop" x1="600" y1="' + (hy + 74) + '" x2="600" y2="' + (hy + 128) + '"/>' +
-      [570, 630].map(function (x) { return '<g transform="translate(' + x + ' ' + (hy + 160) + ')"><circle class="opc" r="26"/><g class="ico2"><circle cy="-6" r="5.5"/><path d="M-10 13c0 -9 20 -9 20 0"/></g></g>'; }).join('') +
-      '<text class="tit" x="600" y="' + (hy + 222) + '">적은 인원의 운용자</text>';
+      '<text class="tit" x="600" y="' + (hy + 108) + '">' + (ops ? '통합 지휘통제' : '체계') + '</text><text class="desc" x="600" y="' + (hy + 134) + '">' + (ops ? '모든 자산을 하나의 화면으로' : '통합 운용 체계로 하나로 묶습니다') + '</text>';
+    var op = !ops ? '' : '<line class="drop" x1="600" y1="' + (hy + 152) + '" x2="600" y2="' + (hy + 198) + '"/>' +
+      [570, 630].map(function (x) { return '<g transform="translate(' + x + ' ' + (hy + 230) + ')"><circle class="opc" r="26"/><g class="ico2"><circle cy="-6" r="5.5"/><path d="M-10 13c0 -9 20 -9 20 0"/></g></g>'; }).join('') +
+      '<text class="tit" x="600" y="' + (hy + 292) + '">적은 인원의 운용자</text>';
     return '<svg class="ks_flowsvg ks_big" viewBox="0 0 1200 ' + h + '" role="img" aria-label="공중, 지상, 해상 자산이 하나의 체계로 모이는 구성도">' + DEFS + svgPlus(h) +
       '<line class="ticks" x1="150" y1="' + ny + '" x2="1050" y2="' + ny + '"/><line class="base" x1="150" y1="' + ny + '" x2="1050" y2="' + ny + '"/>' + top + hub + op + '</svg>';
   };
@@ -42,7 +42,7 @@
     var cx = 700, cy = 250;
     var dot = function (r, deg) { var a = deg * Math.PI / 180; return '<circle class="pin" cx="' + (cx + r * Math.cos(a)).toFixed(1) + '" cy="' + (cy + r * Math.sin(a)).toFixed(1) + '" r="4"/>'; };
     var call = function (d, y, t, s) { return '<path class="conn2" d="' + d + '"/><text class="tit l" x="972" y="' + (y - 4) + '">' + t + '</text><text class="desc l" x="972" y="' + (y + 20) + '">' + s + '</text>'; };
-    return '<svg class="ks_flowsvg ks_big" viewBox="0 0 1200 500" role="img" aria-label="시설을 둘러싼 탐지, 식별, 대응 고리와 지휘통제 구성도">' + DEFS + svgPlus(500) +
+    return '<svg class="ks_flowsvg ks_big" viewBox="0 0 1200 500" role="img" aria-label="시설을 둘러싼 탐지, 식별, 대응 고리와 지휘통제 구성도">' + DEFS + svgPlus(500) + '<g transform="translate(-58 0)">' +
       '<circle class="orb o3" cx="' + cx + '" cy="' + cy + '" r="200"/><circle class="orb o2" cx="' + cx + '" cy="' + cy + '" r="140"/><circle class="orb o1" cx="' + cx + '" cy="' + cy + '" r="82"/>' +
       dot(200, -150) + dot(200, 110) + dot(200, 200) + dot(140, -100) + dot(140, 160) + dot(82, -160) + dot(82, 80) +
       '<line class="ticks" x1="294" y1="' + cy + '" x2="500" y2="' + cy + '"/><line class="base" x1="294" y1="' + cy + '" x2="500" y2="' + cy + '"/><path class="arrow" d="M392 ' + (cy - 7) + 'l7 7 -7 7"/>' +
@@ -50,7 +50,7 @@
       '<text class="tit" x="230" y="' + (cy + 104) + '">지휘통제</text><text class="desc" x="230" y="' + (cy + 130) + '">하나의 화면에서 운용</text>' +
       call('M873 150H960', 150, '탐지', '센서가 먼저 찾아냅니다') + dot(200, -30) +
       call('M840 250H960', 250, '식별', '무엇인지 가려냅니다') + dot(140, 0) +
-      call('M763 303L810 350H960', 350, '대응', '확인 후 대응합니다') + dot(82, 40) + '</svg>';
+      call('M763 303L810 350H960', 350, '대응', '확인 후 대응합니다') + dot(82, 40) + '</g></svg>';
   };
   /* ---------- COMPANY ---------- */
   var greeting = {
