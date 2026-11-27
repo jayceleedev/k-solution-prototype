@@ -144,6 +144,7 @@ html{background:#fff;color-scheme:light;}
 .ks_flowsvg.ks_big .desc{font-size:16.5px;}
 .ks_flowsvg.ks_big .no{font-size:14px;}
 .s214 .cont .txt .tit h4{white-space:nowrap;}
+@media screen and (min-width:1001px){.s214 .cont .txt{gap:40px !important;}.s214 .cont .txt .tit{flex:none !important;width:180px !important;}.s214 .cont .txt .detail{flex:1 1 0 !important;min-width:0;}}
 @media screen and (max-width:1000px){.s214 .ks_info:has(svg){width:100%;margin-left:0;overflow-x:auto;}}
 
 /* 제품 페이지 */
