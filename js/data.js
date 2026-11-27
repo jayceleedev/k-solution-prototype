@@ -23,9 +23,9 @@ window.SITE = {
     { id: 'air', ko: '공중', list: '요격드론 ㆍ 공격드론 ㆍ 장거리 드론', img: 'pro-interceptor',
       sub: '요격부터 장거리 임무까지, 공중 무인체계',
       lines: [
-        { name: '단거리 저고도 요격드론', code: 'KS-I 01', tag: 'SHORT-RANGE LOW-ALTITUDE INTERCEPTOR', img: 'pro-interceptor', type: 'Multirotor UAS', flow: 'chase-low',
+        { name: '단거리 저고도 요격드론', code: 'KS-I 01', tag: 'SHORT-RANGE LOW-ALTITUDE INTERCEPTOR', img: 'pro-interceptor', type: 'Multirotor UAS',
           desc: '저고도에서 접근하는 소형 무인기에 대응하기 위한 단거리 요격드론입니다.' },
-        { name: '중장거리 중고도 요격드론', code: 'KS-I 02', tag: 'MEDIUM/LONG-RANGE MID-ALTITUDE INTERCEPTOR', img: 'pro-interceptor2', type: 'Fixed-wing UAS', flow: 'chase-mid',
+        { name: '중장거리 중고도 요격드론', code: 'KS-I 02', tag: 'MEDIUM/LONG-RANGE MID-ALTITUDE INTERCEPTOR', img: 'pro-interceptor2', type: 'Fixed-wing UAS',
           desc: '원거리에서 접근하는 무인기는 물론 전투기ㆍ폭격기ㆍ헬기 등 유인 항공기까지 대응하기 위한 중장거리 요격드론입니다.' },
         { name: '공격드론', code: 'KS-A 01', tag: 'TACTICAL UNMANNED AERIAL SYSTEM', img: 'pro-strike', type: 'Fixed-wing UAS',
           desc: '자율 비행 기능을 갖춘 삼각날개형 무인 항공체계입니다.' },
