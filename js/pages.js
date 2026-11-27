@@ -132,19 +132,15 @@
   };
 
   /* ---------- R&D ---------- */
-  var circles = [
-    ['고품질 제품 제조', '정밀 제조 분야에서 쌓아온 경험을 바탕으로,<br>무인체계 분야에서 고품질 제품의 제조를 지향합니다.<br>핵심 부품을 사내에서 직접 가공합니다.'],
-    ['기술 및 지식 리더십', '자율ㆍAI에서 체계통합까지<br>네 분야의 연구 인력이 한 팀으로 일합니다.<br>지속적인 연구와 개발로 변화하는 시장에<br>능동적으로 대응합니다.'],
-    ['품질관리와 안전성', '시제 단계부터 엄격한 품질 관리 과정을 준수합니다.<br>제품의 신뢰성과 내구성을 보장하기 위해<br>정확한 시험과 절차를 거칩니다.'],
-    ['고객중심의 비즈니스', '고객의 요구를 충족시키기 위해<br>맞춤형 솔루션과 빠른 응답을 제공합니다.<br>긴밀한 파트너십으로 상호 성장을 이룹니다.']
-  ];
+  /* 연구소: 연구 분야 4개가 설계→시뮬레이션→시제→시험→양산으로 이어지는 인포그래픽 + 설명 3단 (사업영역 페이지와 같은 틀) */
   var lab = {
     big: 'R&amp;D', bigCls: 's421_big_tit', bigPCls: ' sub4-bigtit', title: '연구소', sub: '설계부터 시험평가까지, 무인체계 기술 혁신을 이끄는 연구개발',
     sub2: '<span>케이솔루션 연구소는 무인기와 로봇의 새로운 제품과 기술을 개발하는 다양한 프로젝트를 수행하고 있습니다.</span><br> 설계와 해석, 시뮬레이션, 시제 제작과 시험평가를 한 건물에서 진행하며,<br class="pc"> 연구 결과가 곧바로 생산으로 이어지도록 같은 건물의 생산 라인과 함께 움직입니다.',
-    html: '<section class="s411-wrap"><div class="s411">' +
-      circles.map(function (c, i) { return '<div class="s412' + (i ? '' : ' active') + '"><div class="s412-circle"></div><div class="s412-inner"><img src="' + P + 'img/s4/s41-img0' + (i + 1) + '.png"></div><ul class="s412-inner2"><li class="s412-icon"><img src="' + P + 'img/s4/s41-icon0' + (i + 1) + '.svg"></li><li class="s412-tit">' + c[0] + '</li></ul></div>'; }).join('') +
-      circles.map(function (c, i) { return '<div class="s41' + (i + 3) + ' s41-circle' + (i ? '' : ' active') + '"><ul class="s41' + (i + 3) + '-inner circle-inner"><li class="tab-icon"><img src="' + P + 'img/s4/s41-icon0' + (i ? i + 1 : 5) + '.svg"></li><li class="tab-tit">' + c[0] + '</li><li class="tab-cont">' + c[1] + '</li></ul></div>'; }).join('') +
-      '</div></section>'
+    html: '<section class="sub s211 ks_lab"><div class="s214 s224 s211-inner"><div class="video-wrap"><div class="ks_info">' + img('lab-info', '연구소 연구개발 흐름도') + '</div></div><div class="cont">' +
+      '<div class="txt" id="t1"><div class="tit"><h4>연구 분야</h4></div><div class="detail"><ul class="list"><li>자율ㆍAI, 기체ㆍ구동, 임무장비 통합, 체계통합이 한 팀으로 일합니다.</li></ul><p>분야별로 따로 개발해 나중에 맞추는 방식이 아니라, 처음부터 하나의 제품을 놓고 함께 설계합니다.<br><a href="sub.html?p=fields" style="display:inline;color:#002d82;text-decoration:underline">연구 분야 자세히 보기</a></p></div></div>' +
+      '<div class="txt" id="t2"><div class="tit"><h4>설계와 시제</h4></div><div class="detail"><ul class="list"><li>설계한 것을 같은 건물에서 바로 만듭니다.</li></ul><p>기체 구조와 구동계, 임무장비 배치를 설계하고 해석과 시뮬레이션으로 먼저 검증합니다.<br>검증한 설계는 정밀공작기계로 핵심 부품을 직접 가공해 시제기로 만듭니다.</p></div></div>' +
+      '<div class="txt" id="t3"><div class="tit"><h4>시험과 양산</h4></div><div class="detail"><ul class="list"><li>만든 것을 바로 시험하고 양산으로 잇습니다.</li></ul><p>사내 시험 설비에서 성능을 확인하고, 고칠 점은 곧바로 다음 시제에 반영합니다.<br>검증을 마친 설계는 같은 건물의 생산 라인으로 넘어갑니다.</p></div></div>' +
+      '</div></div></section>'
   };
 
   var lineSec = function (no, title, desc, chips, imgId, rev) {
