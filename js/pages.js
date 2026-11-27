@@ -6,7 +6,7 @@
   /* 선으로 그린 도식(SVG) 공통 부품 */
   var ICO = {
     air: '<path d="M0 -15l4 11 12 5v3l-12 -2 -2 9 4 3v2l-6 -2 -6 2v-2l4 -3 -2 -9 -12 2v-3l12 -5z"/>',
-    land: '<rect x="-14" y="2" width="28" height="9" rx="4.5"/><path d="M-9 2v-7h14l4 7M-2 -5v-7"/>',
+    land: '<g transform="translate(-2 1)"><rect x="-13" y="-7" width="24" height="7" rx="3.5"/><path d="M9 -6l3 -7h6v4h-4l-3 4M-10 0l-3 6 2 7M-4 0l-3 6 2 7M5 0l-3 6 2 7M10 0l-3 6 2 7"/></g>',
     sea: '<path d="M-15 3h30l-5 8h-20zM-6 3v-8h9l4 8M0 -5v-7"/>',
     hub: '<circle r="4"/><circle cx="-11" cy="-8" r="3"/><circle cx="11" cy="-8" r="3"/><circle cy="12" r="3"/><path d="M-3 -3l-6 -3M3 -3l6 -3M0 4v5"/>',
     home: '<path d="M-12 12v-16l12 -8 12 8v16zM-4 12v-8h8v8"/>',
