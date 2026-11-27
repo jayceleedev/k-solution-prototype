@@ -334,12 +334,10 @@
   var pages = { greeting: greeting, history: history, vision: vision, org: org, location: location_, business: business, lab: lab, fields: fields, facility: facility, news: news, contact: contact, talent: talent, careers: careers };
   /* 체계: 통합 솔루션 페이지 (사업영역 페이지와 같은 틀을 쓴다) */
   var solution = function (d) {
-    var card = function (p, icon, label) { return '<li><a href="sub.html?p=' + p + '"><div class="icon-wrap"><img src="' + P + 'img/s2/s223_icon' + icon + '.svg" alt=""></div><p>' + label + '</p></a></li>'; };
     return {
       big: 'PRODUCTS', title: d.ko, sub: d.sub, bg: [['.s221-top', 'system-top']],
       html: '<section class="sub s211"><div class="s211-top s221-top"></div><div class="s212 s211-inner"><div class="txt"><div class="s212-tit"><h4 class="blue2">our solution</h4><h3>통합 운용 체계</h3></div>' +
         '<div class="s212-detail"><p>적은 인원으로 군단급 전력에 맞서는 통합 솔루션</p><p>케이솔루션의 통합 운용 체계는 공중ㆍ지상ㆍ해상 무인 자산과 센서를<br>통합 지휘통제 화면으로 연결합니다.<br>적은 인원으로 운용할 수 있도록 설계한 체계입니다.</p></div></div></div>' +
-        '<div class="s213 s223"><ul>' + card('air', 1, '공중') + card('land', 2, '지상') + card('sea', 3, '해상') + '</ul></div>' +
         '<div class="s214 s224 s211-inner"><div class="video-wrap"><div class="ks_info">' + convergeSvg(true) + '</div></div><div class="cont">' +
         '<div class="txt" id="t1"><div class="tit"><h4>하나의 화면</h4></div><div class="detail"><ul class="list"><li>공중ㆍ지상ㆍ해상 무인 자산의 운용 정보를 통합합니다.</li></ul><p>드론과 로봇, 지상 감시 스테이션, 감시 부이와 해저 센서의 정보를 통합 상황도로 구성합니다.<br>운용자는 장비별 상태와 전체 상황을 통합적으로 확인합니다.</p></div></div>' +
         '<div class="txt" id="t2"><div class="tit"><h4>소수 인원 운용</h4></div><div class="detail"><ul class="list"><li>적은 인원으로 군단급 전력에 맞설 수 있도록.</li></ul><p>운용자가 주요 정보와 장비 상태를 확인할 수 있는 통합 관제 환경을 제공합니다.<br>적은 인원으로 무인 자산을 운용할 수 있는 환경 구축을 지향합니다.</p></div></div>' +
