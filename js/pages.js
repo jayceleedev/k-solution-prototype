@@ -81,7 +81,7 @@
       '<div class="his_wrap"><span class="barOn" style="height:0%"></span>' +
       hisItem('2027', [['06', ['제품군별 시제 1호기 완성 (예시)']], ['03', ['무인체계 시험동 구축 (예시)']]]) +
       hisItem('2026', [['12', ['기업부설연구소 인정 (예시)', '6개 제품군 개발 착수 (예시)']], ['11', ['K-SOLUTION 법인 설립 (예시)', '진주 본사 내 연구소 개소 (예시)']], ['09', ['무인체계 사업 준비단 발족 (예시)']]]) +
-      '</div><p class="ks_note">※ 연혁은 화면 구성을 보기 위한 예시입니다.</p></div></section>'
+      '</div></div></section>'
   };
 
   var vision = {
@@ -116,7 +116,7 @@
       ogCol('COO', '생산본부', ['생산기술', '품질', '구매']) +
       ogCol('', '경영지원본부', ['경영기획', '총무', '보안']) +
       ogCol('', '사업본부', ['국내사업', '해외사업']) +
-      '</ul><p class="og_hint">조직 구성은 화면 구성을 보기 위한 예시입니다.</p></div></section>'
+      '</ul></div></section>'
   };
 
   var location_ = {
@@ -170,7 +170,7 @@
         '</tbody></table></div></div>' +
         '<div class="s30_feature_box"><h4 class="spec_tit">' + m.code + ' FEATURES</h4><ul class="feature_list"><li>Modular design for mission-specific equipment</li><li>Precision-machined structural parts made in-house</li><li>Open interface for third-party sensors</li><li>Designed for volume production</li></ul></div>' +
         (m.info ? '<div class="ks_wide">' + img(m.info, m.name + ' 구성 인포그래픽') + '</div>' : '') +
-        '<div class="s30_info_box"><p>*제원 값(000)은 화면 구성을 보기 위한 자리 채움입니다</p><p>**Under development. Specifications subject to change</p></div></div>';
+        '</div>';
     }).join('');
     return {
       big: 'PRODUCTS', title: d.ko, sub: d.sub,
@@ -265,7 +265,7 @@
     big: 'news', title: '보도자료', sub: '케이솔루션의 새로운 소식을 전해 드립니다',
     html: '<div class="ks_newslist"><div class="head"><p>총 <b>' + S.news.length + '</b>건</p><div class="search"><span>검색어 입력</span><i class="xi-search"></i></div></div><ul>' +
       S.news.map(function (n) { return '<li><a href="#none"><div class="thumb" data-bgimg="' + n.id + '"></div><p class="tit">' + n.title + '</p><p class="src"><span><span>출처</span><span>' + n.src + '</span></span><i class="xi-arrow-right"></i></p></a></li>'; }).join('') +
-      '</ul><p class="ks_note">※ 기사 제목과 출처는 화면 구성을 보기 위한 예시입니다.</p></div>'
+      '</ul></div>'
   };
 
   /* ---------- CONTACT ---------- */
@@ -320,7 +320,7 @@
       '<p class="careers_intro">현재 진행 중인 채용 공고입니다. 공고를 누르면 담당업무, 자격요건, 근무조건과 전형절차를 자세히 볼 수 있습니다.</p><ul class="cr_joblist">' +
       job('무인체계 연구원 (자율ㆍAI / 기체ㆍ구동)', '무인체계 연구소', '신입/경력', ['자율 운용, 영상 인식, 기체 구조 설계 등 연구 직무', '관련 분야 학사 이상'], 'dept_rnd.jpg') +
       job('상시채용 (전 부문)', '전 부문', '신입/경력', ['연구, 생산, 품질, 경영지원, 사업 등 전 부문', '지원 직무를 정하고 이력서와 함께 보내 주세요'], 'dept_management.jpg') +
-      '</ul><div class="career_notice">ㆍ제출하신 서류는 채용 목적으로만 사용되며, 전형 종료 후 관련 법령에 따라 파기합니다.<br>ㆍ채용 관련 문의: <a href="sub.html?p=contact">고객문의</a> 또는 대표전화 ' + S.tel + '<br>ㆍ공고 내용은 화면 구성을 보기 위한 예시입니다.</div></div></section>'
+      '</ul><div class="career_notice">ㆍ제출하신 서류는 채용 목적으로만 사용되며, 전형 종료 후 관련 법령에 따라 파기합니다.<br>ㆍ채용 관련 문의: <a href="sub.html?p=contact">고객문의</a> 또는 대표전화 ' + S.tel + '</div></div></section>'
   };
 
   var pages = { greeting: greeting, history: history, vision: vision, org: org, location: location_, business: business, lab: lab, fields: fields, facility: facility, news: news, contact: contact, talent: talent, careers: careers };
