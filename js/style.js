@@ -129,6 +129,22 @@ html{background:#fff;color-scheme:light;}
   .ks_flowsvg{min-width:900px;}
 }
 
+.ks_flowsvg text.l{text-anchor:start;}
+.ks_flowsvg .conn{fill:none;stroke:#9fb2d8;stroke-width:1.2;stroke-dasharray:2 5;}
+.ks_flowsvg .conn2{fill:none;stroke:#9fb2d8;stroke-width:1;}
+.ks_flowsvg .ico2{fill:none;stroke:#002d82;stroke-width:1.8;stroke-linecap:round;}
+.ks_flowsvg .opc{fill:#fff;stroke:#002d82;stroke-opacity:.3;stroke-width:1;}
+.ks_flowsvg .orb{fill:none;stroke:#9fb2d8;stroke-width:1;}
+.ks_flowsvg .orb.o3{stroke-dasharray:1.5 6;}
+.ks_flowsvg .orb.o2{stroke:#002d82;stroke-opacity:.3;}
+.ks_flowsvg .orb.o1{fill:rgba(55,143,255,.07);stroke:#378fff;stroke-opacity:.6;}
+.s214 .ks_info:has(svg){background:none;overflow:visible;padding:10px 0;width:140%;margin-left:-20%;}
+.ks_flowsvg.ks_big .tit{font-size:24px;}
+.ks_flowsvg.ks_big .desc{font-size:16.5px;}
+.ks_flowsvg.ks_big .no{font-size:14px;}
+.s214 .cont .txt .tit h4{white-space:nowrap;}
+@media screen and (max-width:1000px){.s214 .ks_info:has(svg){width:100%;margin-left:0;overflow-x:auto;}}
+
 /* 제품 페이지 */
 .s30 .s30_img_box .img_placeholder img{max-width:92%;max-height:340px;object-fit:contain;}
 .s30 .ks_wide{margin:60px 0 0;}

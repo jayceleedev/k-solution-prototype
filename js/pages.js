@@ -3,6 +3,55 @@
   var S = window.SITE, P = window.P;
   var img = function (id, alt, cls) { return '<img data-img="' + id + '" alt="' + (alt || '') + '"' + (cls ? ' class="' + cls + '"' : '') + '>'; };
 
+  /* 선으로 그린 도식(SVG) 공통 부품 */
+  var ICO = {
+    air: '<path d="M0 -15l4 11 12 5v3l-12 -2 -2 9 4 3v2l-6 -2 -6 2v-2l4 -3 -2 -9 -12 2v-3l12 -5z"/>',
+    land: '<rect x="-14" y="2" width="28" height="9" rx="4.5"/><path d="M-9 2v-7h14l4 7M-2 -5v-7"/>',
+    sea: '<path d="M-15 3h30l-5 8h-20zM-6 3v-8h9l4 8M0 -5v-7"/>',
+    hub: '<circle r="4"/><circle cx="-11" cy="-8" r="3"/><circle cx="11" cy="-8" r="3"/><circle cy="12" r="3"/><path d="M-3 -3l-6 -3M3 -3l6 -3M0 4v5"/>',
+    home: '<path d="M-12 12v-16l12 -8 12 8v16zM-4 12v-8h8v8"/>',
+    c2: '<rect x="-14" y="-11" width="28" height="18" rx="2"/><path d="M-6 13h12M0 7v6M-8 -2l4 3 4 -5 4 3 4 -3"/>'
+  };
+  var DEFS = '<defs><linearGradient id="ksg0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a3fb0"/><stop offset="1" stop-color="#002d82"/></linearGradient>' +
+    '<linearGradient id="ksg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f9cff"/><stop offset="1" stop-color="#1f5fd6"/></linearGradient></defs>';
+  var svgNode = function (x, y, r, g, ico) {
+    return '<g class="ks_node" transform="translate(' + x + ' ' + y + ')"><circle class="ring3" r="' + (r + 24) + '"/><circle class="ring2" r="' + (r + 12) + '"/><circle class="core" r="' + r + '" fill="url(#ksg' + g + ')"/><g class="ico">' + ico + '</g></g>';
+  };
+  var svgPlus = function (h) { return [[40, 26], [1160, 26], [40, h - 26], [1160, h - 26]].map(function (p) { return '<path class="plus" d="M' + (p[0] - 6) + ' ' + p[1] + 'h12M' + p[0] + ' ' + (p[1] - 6) + 'v12"/>'; }).join(''); };
+
+  /* 공중ㆍ지상ㆍ해상이 하나의 체계로 모이는 도식. ops=true 이면 아래에 적은 인원의 운용자를 붙인다 */
+  var convergeSvg = function (ops) {
+    var cols = [[250, '공중', '요격드론 ㆍ 공격드론 ㆍ 장거리 드론', ICO.air], [600, '지상', '전투 로봇 ㆍ 매복형 드론 ㆍ 감시 스테이션', ICO.land], [950, '해상', '해상드론 ㆍ 감시 부이 ㆍ 해저 센서', ICO.sea]];
+    var h = ops ? 650 : 500, ny = 200, hy = 410;
+    var top = cols.map(function (c, i) {
+      return '<text class="no" x="' + c[0] + '" y="44">0' + (i + 1) + '</text><text class="tit" x="' + c[0] + '" y="78">' + c[1] + '</text><text class="desc" x="' + c[0] + '" y="104">' + c[2] + '</text>' +
+        '<path class="conn" d="M' + c[0] + ' ' + (ny + 66) + 'C' + c[0] + ' ' + (hy - 80) + ' 600 ' + (ny + 90) + ' 600 ' + (hy - 74) + '"/><circle class="pin" cx="' + c[0] + '" cy="' + (ny + 66) + '" r="4"/>' +
+        svgNode(c[0], ny, 40, i % 2, c[3]);
+    }).join('');
+    var hub = svgNode(600, hy, 48, 0, ICO.hub) +
+      '<text class="tit l" x="690" y="' + (hy - 2) + '">' + (ops ? '통합 지휘통제' : '체계') + '</text><text class="desc l" x="690" y="' + (hy + 24) + '">' + (ops ? '모든 자산을 하나의 화면으로' : '통합 운용 체계로 하나로 묶습니다') + '</text>';
+    var op = !ops ? '' : '<line class="drop" x1="600" y1="' + (hy + 74) + '" x2="600" y2="' + (hy + 128) + '"/>' +
+      [570, 630].map(function (x) { return '<g transform="translate(' + x + ' ' + (hy + 160) + ')"><circle class="opc" r="26"/><g class="ico2"><circle cy="-6" r="5.5"/><path d="M-10 13c0 -9 20 -9 20 0"/></g></g>'; }).join('') +
+      '<text class="tit" x="600" y="' + (hy + 222) + '">적은 인원의 운용자</text>';
+    return '<svg class="ks_flowsvg ks_big" viewBox="0 0 1200 ' + h + '" role="img" aria-label="공중, 지상, 해상 자산이 하나의 체계로 모이는 구성도">' + DEFS + svgPlus(h) +
+      '<line class="ticks" x1="150" y1="' + ny + '" x2="1050" y2="' + ny + '"/><line class="base" x1="150" y1="' + ny + '" x2="1050" y2="' + ny + '"/>' + top + hub + op + '</svg>';
+  };
+
+  /* 시설 및 지역방어: 시설을 둘러싼 탐지ㆍ식별ㆍ대응 고리와 지휘통제 */
+  var ringsSvg = function () {
+    var cx = 700, cy = 250;
+    var dot = function (r, deg) { var a = deg * Math.PI / 180; return '<circle class="pin" cx="' + (cx + r * Math.cos(a)).toFixed(1) + '" cy="' + (cy + r * Math.sin(a)).toFixed(1) + '" r="4"/>'; };
+    var call = function (d, y, t, s) { return '<path class="conn2" d="' + d + '"/><text class="tit l" x="972" y="' + (y - 4) + '">' + t + '</text><text class="desc l" x="972" y="' + (y + 20) + '">' + s + '</text>'; };
+    return '<svg class="ks_flowsvg ks_big" viewBox="0 0 1200 500" role="img" aria-label="시설을 둘러싼 탐지, 식별, 대응 고리와 지휘통제 구성도">' + DEFS + svgPlus(500) +
+      '<circle class="orb o3" cx="' + cx + '" cy="' + cy + '" r="200"/><circle class="orb o2" cx="' + cx + '" cy="' + cy + '" r="140"/><circle class="orb o1" cx="' + cx + '" cy="' + cy + '" r="82"/>' +
+      dot(200, -150) + dot(200, 110) + dot(200, 200) + dot(140, -100) + dot(140, 160) + dot(82, -160) + dot(82, 80) +
+      '<line class="ticks" x1="294" y1="' + cy + '" x2="500" y2="' + cy + '"/><line class="base" x1="294" y1="' + cy + '" x2="500" y2="' + cy + '"/><path class="arrow" d="M392 ' + (cy - 7) + 'l7 7 -7 7"/>' +
+      svgNode(cx, cy, 40, 0, ICO.home) + svgNode(230, cy, 40, 1, ICO.c2) +
+      '<text class="tit" x="230" y="' + (cy + 104) + '">지휘통제</text><text class="desc" x="230" y="' + (cy + 130) + '">하나의 화면에서 운용</text>' +
+      call('M873 150H960', 150, '탐지', '센서가 먼저 찾아냅니다') + dot(200, -30) +
+      call('M840 250H960', 250, '식별', '무엇인지 가려냅니다') + dot(140, 0) +
+      call('M763 303L810 350H960', 350, '대응', '확인 후 대응합니다') + dot(82, 40) + '</svg>';
+  };
   /* ---------- COMPANY ---------- */
   var greeting = {
     big: 'company', title: '인사말', sub: '고객의 신뢰를 최우선으로, 케이솔루션이 인사드립니다',
@@ -87,7 +136,7 @@
       '<li><a href="#t1"><div class="icon-wrap"><img src="' + P + 'img/s2/s223_icon1.svg" alt=""></div><p>혁신기술</p></a></li>' +
       '<li><a href="#t2"><div class="icon-wrap"><img src="' + P + 'img/s2/s223_icon2.svg" alt=""></div><p>글로벌사업</p></a></li>' +
       '<li><a href="#t3"><div class="icon-wrap"><img src="' + P + 'img/s2/s223_icon3.svg" alt=""></div><p>안전ㆍ품질</p></a></li></ul></div>' +
-      '<div class="s214 s224 s211-inner"><div class="video-wrap"><div class="ks_info">' + img('biz-info', '사업영역 인포그래픽') + '</div></div><div class="cont">' +
+      '<div class="s214 s224 s211-inner"><div class="video-wrap"><div class="ks_info">' + convergeSvg(false) + '</div></div><div class="cont">' +
       '<div class="txt" id="t1"><div class="tit"><h4>혁신기술</h4></div><div class="detail"><ul class="list"><li>설계부터 시험평가까지 직접 수행합니다.</li></ul><p>설계한 것을 바로 만들고, 만든 것을 바로 시험합니다.<br>자율ㆍAI, 기체ㆍ구동, 임무장비, 체계통합 네 분야의 연구가 하나의 제품으로 이어집니다.</p></div></div>' +
       '<div class="txt" id="t2"><div class="tit"><h4>글로벌사업</h4></div><div class="detail"><ul class="list"><li>세계 무인체계 시장의 새로운 개척자 케이솔루션</li></ul><p>케이솔루션은 국내를 넘어 중동 등 해외 시장을 함께 바라봅니다.<br>현장의 요구에 맞춘 제품으로 세계 방산시장의 동반자로서 글로벌 파트너십을 열어가고 있습니다.</p></div></div>' +
       '<div class="txt" id="t3"><div class="tit"><h4>안전ㆍ품질</h4></div><div class="detail"><ul class="list"><li>신뢰의 기본, 강력한 품질 관리</li></ul><p>철저한 품질 관리로 최고의 결과를 도출합니다.<br>핵심 부품을 사내에서 직접 가공하고 검사하여 품질을 처음부터 끝까지 책임집니다.</p></div></div>' +
@@ -169,7 +218,7 @@
       '<linearGradient id="ksg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f9cff"/><stop offset="1" stop-color="#1f5fd6"/></linearGradient></defs>' +
       plus +
       '<line class="rail" x1="140" y1="74" x2="1060" y2="74"/>' +
-      '<rect class="pill" x="455" y="54" width="290" height="40" rx="20"/><text class="pilltx" x="600" y="80">하나로 이어지는 연구개발</text>' +
+      '<line class="rail" x1="600" y1="44" x2="600" y2="70"/><rect class="pill" x="470" y="8" width="260" height="36" rx="18"/><text class="pilltx" x="600" y="32">하나로 이어지는 연구개발</text>' +
       '<line class="ticks" x1="70" y1="' + cy + '" x2="1130" y2="' + cy + '"/><line class="base" x1="70" y1="' + cy + '" x2="1130" y2="' + cy + '"/>' +
       '<circle class="runner" cy="' + cy + '" r="4"><animate attributeName="cx" values="70;1130" dur="7s" repeatCount="indefinite"/></circle>' +
       arrows + nodes + '</svg></div></section>';
@@ -281,13 +330,13 @@
     return {
       big: 'PRODUCTS', title: d.ko, sub: d.sub, bg: [['.s221-top', 'system-top']],
       html: '<section class="sub s211"><div class="s211-top s221-top"></div><div class="s212 s211-inner"><div class="txt"><div class="s212-tit"><h4 class="blue2">our solution</h4><h3>통합 운용 체계</h3></div>' +
-        '<div class="s212-detail"><p>한두 명이 군단급 전력에 맞서는 통합 솔루션</p><p>케이솔루션의 통합 운용 체계는 공중ㆍ지상ㆍ해상의 무인 자산과 센서를<br>하나의 지휘통제 화면으로 연결합니다.<br>적은 인원으로도 넓은 지역을 지킬 수 있도록 설계한 체계입니다.</p></div></div></div>' +
+        '<div class="s212-detail"><p>적은 인원으로 군단급 전력에 맞서는 통합 솔루션</p><p>케이솔루션의 통합 운용 체계는 공중ㆍ지상ㆍ해상의 무인 자산과 센서를<br>하나의 지휘통제 화면으로 연결합니다.<br>적은 인원으로도 넓은 지역을 지킬 수 있도록 설계한 체계입니다.</p></div></div></div>' +
         '<div class="s213 s223"><ul>' + card('air', 1, '공중') + card('land', 2, '지상') + card('sea', 3, '해상') + '</ul></div>' +
-        '<div class="s214 s224 s211-inner"><div class="video-wrap"><div class="ks_info">' + img('system-info', '통합 운용 체계 구성도') + '</div></div><div class="cont">' +
+        '<div class="s214 s224 s211-inner"><div class="video-wrap"><div class="ks_info">' + convergeSvg(true) + '</div></div><div class="cont">' +
         '<div class="txt" id="t1"><div class="tit"><h4>하나의 화면</h4></div><div class="detail"><ul class="list"><li>공중ㆍ지상ㆍ해상의 모든 자산을 한 화면에서 봅니다.</li></ul><p>드론과 로봇, 지상 감시 스테이션, 부이와 해저 센서가 보내는 정보를 하나의 상황도로 모읍니다.<br>운용자는 흩어진 장비를 따로 다루지 않고 전체 상황을 한눈에 파악합니다.</p></div></div>' +
-        '<div class="txt" id="t2"><div class="tit"><h4>소수 인원 운용</h4></div><div class="detail"><ul class="list"><li>한두 명이 군단급 전력에 맞설 수 있도록.</li></ul><p>반복되는 감시와 이동, 임무 배정은 체계가 맡고 운용자는 판단과 승인에 집중합니다.<br>적은 인원으로 넓은 지역과 많은 장비를 동시에 운용하는 것이 이 체계의 목표입니다.</p></div></div>' +
+        '<div class="txt" id="t2"><div class="tit"><h4>소수 인원 운용</h4></div><div class="detail"><ul class="list"><li>적은 인원으로 군단급 전력에 맞설 수 있도록.</li></ul><p>반복되는 감시와 이동, 임무 배정은 체계가 맡고 운용자는 판단과 승인에 집중합니다.<br>적은 인원으로 넓은 지역과 많은 장비를 동시에 운용하는 것이 이 체계의 목표입니다.</p></div></div>' +
         '<div class="txt" id="t3"><div class="tit"><h4>시설 및 지역방어</h4></div><div class="detail"><ul class="list"><li>탐지에서 대응까지 하나의 흐름으로.</li></ul><p>중요 시설과 지역을 둘러싼 탐지, 식별, 대응 과정을 하나의 체계로 묶습니다.<br>필요한 자산을 골라 시설 하나부터 넓은 지역까지 같은 화면으로 지킵니다.</p></div></div>' +
-        '</div><div class="ks_info ks_info2">' + img('defense-info', '시설 및 지역방어 구성도') + '</div></div></section>'
+        '</div><div class="ks_info ks_info2">' + ringsSvg() + '</div></div></section>'
     };
   };
   S.domains.forEach(function (d) { pages[d.id] = d.solution ? solution(d) : product(d); });
