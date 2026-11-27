@@ -250,6 +250,9 @@
   var gal = function (file, title, cap, cls) {
     return '<li' + (cls ? ' class="' + cls + '"' : '') + '><a href="' + P + 'img/s4/photo/' + file + '" target="_blank" rel="noopener"><img src="' + P + 'img/s4/photo/' + file + '" alt="' + title + '" loading="lazy"><span class="gal_cap"><b>' + title + '</b>' + cap + '</span></a></li>';
   };
+  var galL = function (id, title, cap, cls) {
+    return '<li' + (cls ? ' class="' + cls + '"' : '') + '><a href="assets/img/' + id + '.webp" target="_blank" rel="noopener">' + img(id, title) + '<span class="gal_cap"><b>' + title + '</b>' + cap + '</span></a></li>';
+  };
   var facility = {
     big: 'R&amp;D', bigCls: 's421_big_tit', title: '내ㆍ외부전경', sub: '케이솔루션 진주 본사 안내',
     html: '<section class="s421 gal_page"><div class="gal_intro plant_intro"><p class="c_label">Headquarters</p><p class="c_title">K-SOLUTION 본사ㆍ연구소</p><p class="gal_desc">케이솔루션 본사는 설계ㆍ해석ㆍ시뮬레이션ㆍ시험평가 및 생산을 위한 연구개발 환경을 갖추고 있습니다.</p>' +
@@ -257,6 +260,11 @@
       '<div class="gal_hero"><a href="' + P + 'img/s4/photo/exterior.jpg" target="_blank" rel="noopener"><img src="' + P + 'img/s4/photo/exterior.jpg" alt="외부전경" loading="lazy"><span class="gal_cap"><b>외부전경</b>경남 진주 정촌 산업단지에 자리한 본사 건물</span></a></div>' +
       '<div class="gal_sec"><p class="c_label">Interior</p><p class="c_title">내부전경</p><p class="gal_desc">로비, 성능검사실, 물류창고 등 체계적인 업무와 품질 관리를 위한 시설을 갖추고 있습니다.</p><ul class="gal_grid">' +
       gal('lobby.jpg', '로비', '본사 로비', 'wide') + gal('wall.jpg', '전시벽', '비전을 소개하는 전시벽') + gal('control.jpg', '성능검사실', '완성된 제품의 성능을 최종 점검하는 곳') + gal('warehouse.jpg', '물류창고', '원소재 입고부터 출하까지 물량 흐름을 관리하는 물류창고', 'wide') +
+      '</ul></div>' +
+      '<div class="gal_sec"><p class="c_label">Research &amp; Test Facilities</p><p class="c_title">연구ㆍ시험 시설</p><p class="gal_desc">기체 조립부터 비행ㆍ주행ㆍ수조 시험까지, 무인체계 개발에 필요한 시설을 갖추고 있습니다.</p><ul class="gal_grid">' +
+      galL('fac-assembly', '기체 조립실', '무인기 기체를 조립하고 점검하는 공간', 'wide') + galL('fac-flight', '실내 비행시험장', '안전망과 계측 장비를 갖춘 실내 비행 시험 공간') +
+      galL('fac-control', '통합 관제 시험실', '공중ㆍ지상ㆍ해상 자산의 연동을 시험하는 관제실') + galL('fac-robot', '로봇 주행 시험장', '경사로ㆍ계단ㆍ자갈 구간에서 지상 로봇의 주행을 시험하는 공간', 'wide') +
+      galL('fac-tank', '수조 시험실', '해상드론과 수중 장비를 시험하는 실내 수조') + galL('fac-chamber', '전자파 시험실', '안테나와 통신 장비를 측정하는 무반사실') +
       '</ul></div></section>'
   };
 
