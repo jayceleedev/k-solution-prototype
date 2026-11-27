@@ -10,7 +10,7 @@
       '<p class="tit">안녕하세요. 케이솔루션입니다.</p>' +
       '<p>케이솔루션은 첨단 기술과 정밀 제조 능력을 바탕으로 무인기와 로봇의 연구개발과 생산에 나서고 있는 무인체계 전문 기업입니다.</p>' +
       '<p>전장의 모습은 빠르게 바뀌고 있습니다. 사람이 감당하던 위험을 무인체계가 대신하는 시대에, 케이솔루션은 공중과 해상, 지상을 아우르는 제품군과 이를 하나로 묶는 통합 방어 솔루션으로 대한민국 방위산업의 새로운 지평을 열고자 합니다.</p>' +
-      '<p>케이솔루션은 연구소에서 설계한 것을 같은 건물의 생산 라인에서 바로 만들고 시험합니다. 설계와 제조가 한곳에서 이어지는 구조는 개발 기간을 줄이고, 품질을 처음부터 끝까지 직접 책임질 수 있게 합니다.</p>' +
+      '<p>케이솔루션은 설계부터 시제 제작, 시험평가까지 직접 수행합니다. 이를 통해 개발 기간을 줄이고, 품질을 처음부터 끝까지 직접 책임집니다.</p>' +
       '<p>이를 위해 케이솔루션은 젊은 리더십 아래 국내외 우수 연구 인력을 확보하고, 대학ㆍ연구기관ㆍ협력사와 함께 성장하는 열린 연구 환경을 만들어 가고 있습니다.</p>' +
       '<p>케이솔루션은 첨단 기술을 바탕으로 대한민국 국가 안보와 세계 평화에 이바지하는 기술보국의 가치를 실현해 나갈 것을 약속드립니다.</p>' +
       '<p>고객 여러분의 아낌없는 성원에 감사드리며, 더욱 신뢰받는 기업이 되도록 끊임없이 노력하겠습니다.</p>' +
@@ -88,7 +88,7 @@
       '<li><a href="#t2"><div class="icon-wrap"><img src="' + P + 'img/s2/s223_icon2.svg" alt=""></div><p>글로벌사업</p></a></li>' +
       '<li><a href="#t3"><div class="icon-wrap"><img src="' + P + 'img/s2/s223_icon3.svg" alt=""></div><p>안전ㆍ품질</p></a></li></ul></div>' +
       '<div class="s214 s224 s211-inner"><div class="video-wrap"><div class="ks_info">' + img('biz-info', '사업영역 인포그래픽') + '</div></div><div class="cont">' +
-      '<div class="txt" id="t1"><div class="tit"><h4>혁신기술</h4></div><div class="detail"><ul class="list"><li>연구소와 생산 라인이 한 건물에 있습니다.</li></ul><p>설계한 것을 바로 만들고, 만든 것을 바로 시험합니다.<br>자율ㆍAI, 기체ㆍ구동, 임무장비, 체계통합 네 분야의 연구가 하나의 제품으로 이어집니다.</p></div></div>' +
+      '<div class="txt" id="t1"><div class="tit"><h4>혁신기술</h4></div><div class="detail"><ul class="list"><li>설계부터 시험평가까지 직접 수행합니다.</li></ul><p>설계한 것을 바로 만들고, 만든 것을 바로 시험합니다.<br>자율ㆍAI, 기체ㆍ구동, 임무장비, 체계통합 네 분야의 연구가 하나의 제품으로 이어집니다.</p></div></div>' +
       '<div class="txt" id="t2"><div class="tit"><h4>글로벌사업</h4></div><div class="detail"><ul class="list"><li>세계 무인체계 시장의 새로운 개척자 케이솔루션</li></ul><p>케이솔루션은 국내를 넘어 중동 등 해외 시장을 함께 바라봅니다.<br>현장의 요구에 맞춘 제품으로 세계 방산시장의 동반자로서 글로벌 파트너십을 열어가고 있습니다.</p></div></div>' +
       '<div class="txt" id="t3"><div class="tit"><h4>안전ㆍ품질</h4></div><div class="detail"><ul class="list"><li>신뢰의 기본, 강력한 품질 관리</li></ul><p>철저한 품질 관리로 최고의 결과를 도출합니다.<br>핵심 부품을 사내에서 직접 가공하고 검사하여 품질을 처음부터 끝까지 책임집니다.</p></div></div>' +
       '</div></div></section>'
@@ -146,7 +146,7 @@
       ['해석ㆍ시뮬레이션', '만들기 전에 해석과', '시뮬레이션으로 검증', '<rect x="-15" y="-13" width="30" height="20" rx="2"/><path d="M-9 -2c3 -7 5 -7 8 0s5 7 8 0"/><path d="M-6 13h12M0 7v6"/>'],
       ['시제 제작', '핵심 부품을 사내에서', '가공해 시제기 제작', '<path d="M0 -15l13 7v15l-13 7-13-7v-15z"/><path d="M-13 -8l13 7 13-7M0 -1v15"/>'],
       ['시험평가', '사내 시험 설비에서', '성능을 확인하고 보완', '<rect x="-11" y="-11" width="22" height="25" rx="2"/><path d="M-5 -15h10v6h-10z"/><path d="M-6 2l4 4 8-8"/>'],
-      ['양산', '검증한 설계를 같은 건물', '생산 라인으로 전환', '<circle r="5"/><circle r="11"/><path d="M0 -16v5M0 11v5M-16 0h5M11 0h5M-11.3 -11.3l3.5 3.5M7.8 7.8l3.5 3.5M11.3 -11.3l-3.5 3.5M-7.8 7.8l-3.5 3.5"/>']
+      ['양산', '검증을 마친 설계를', '생산 라인으로 전환', '<circle r="5"/><circle r="11"/><path d="M0 -16v5M0 11v5M-16 0h5M11 0h5M-11.3 -11.3l3.5 3.5M7.8 7.8l3.5 3.5M11.3 -11.3l-3.5 3.5M-7.8 7.8l-3.5 3.5"/>']
     ];
     var xs = [140, 370, 600, 830, 1060], cy = 210;
     var nodes = steps.map(function (s, i) {
@@ -163,20 +163,20 @@
     var arrows = xs.slice(0, 4).map(function (x) { var m = x + 115; return '<path class="arrow" d="M' + (m - 6) + ' ' + (cy - 7) + 'l7 7 -7 7"/>'; }).join('');
     var plus = [[40, 26], [1160, 26], [40, 384], [1160, 384]].map(function (p) { return '<path class="plus" d="M' + (p[0] - 6) + ' ' + p[1] + 'h12M' + p[0] + ' ' + (p[1] - 6) + 'v12"/>'; }).join('');
     return '<section class="sub ks_flowsec"><div class="inner2"><p class="c_label">R&amp;D Flow</p><p class="c_title">설계에서 양산까지</p>' +
-      '<p class="ks_flowdesc">연구소에서 설계한 것을 같은 건물에서 만들고, 시험하고, 양산으로 넘깁니다.</p>' +
+      '<p class="ks_flowdesc">연구소에서 설계한 것을 만들고, 시험하고, 양산으로 넘기는 흐름입니다.</p>' +
       '<svg class="ks_flowsvg" viewBox="0 0 1200 410" role="img" aria-label="설계, 해석ㆍ시뮬레이션, 시제 제작, 시험평가, 양산으로 이어지는 연구개발 흐름">' +
       '<defs><linearGradient id="ksg0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a3fb0"/><stop offset="1" stop-color="#002d82"/></linearGradient>' +
       '<linearGradient id="ksg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f9cff"/><stop offset="1" stop-color="#1f5fd6"/></linearGradient></defs>' +
       plus +
       '<line class="rail" x1="140" y1="74" x2="1060" y2="74"/>' +
-      '<rect class="pill" x="455" y="54" width="290" height="40" rx="20"/><text class="pilltx" x="600" y="80">한 건물 안에서 이어지는 연구개발</text>' +
+      '<rect class="pill" x="455" y="54" width="290" height="40" rx="20"/><text class="pilltx" x="600" y="80">하나로 이어지는 연구개발</text>' +
       '<line class="ticks" x1="70" y1="' + cy + '" x2="1130" y2="' + cy + '"/><line class="base" x1="70" y1="' + cy + '" x2="1130" y2="' + cy + '"/>' +
       '<circle class="runner" cy="' + cy + '" r="4"><animate attributeName="cx" values="70;1130" dur="7s" repeatCount="indefinite"/></circle>' +
       arrows + nodes + '</svg></div></section>';
   };
   var lab = {
     big: 'R&amp;D', bigCls: 's421_big_tit', bigPCls: ' sub4-bigtit', title: '연구소', sub: '설계부터 시험평가까지, 무인체계 기술 혁신을 이끄는 연구개발',
-    sub2: '<span>케이솔루션 연구소는 무인기와 로봇의 새로운 제품과 기술을 개발하는 다양한 프로젝트를 수행하고 있습니다.</span><br> 설계와 해석, 시뮬레이션, 시제 제작과 시험평가를 한 건물에서 진행하며,<br class="pc"> 연구 결과가 곧바로 생산으로 이어지도록 같은 건물의 생산 라인과 함께 움직입니다.',
+    sub2: '<span>케이솔루션 연구소는 무인기와 로봇의 새로운 제품과 기술을 개발하는 다양한 프로젝트를 수행하고 있습니다.</span><br> 설계와 해석, 시뮬레이션, 시제 제작과 시험평가를 직접 수행하며,<br class="pc"> 연구 결과가 곧바로 제품으로 이어지도록 합니다.',
     html: '<section class="s411-wrap ks_lab"><div class="s411">' +
       circles.map(function (c, i) { return '<div class="s412' + (i ? '' : ' active') + '"><div class="s412-circle"></div><div class="s412-inner">' + img('field-' + (i + 1), c[0]) + '</div><ul class="s412-inner2"><li class="s412-icon"><img src="' + P + 'img/s4/s41-icon0' + (i + 1) + '.svg"></li><li class="s412-tit">' + c[0] + '</li></ul></div>'; }).join('') +
       circles.map(function (c, i) { return '<div class="s41' + (i + 3) + ' s41-circle' + (i ? '' : ' active') + '"><ul class="s41' + (i + 3) + '-inner circle-inner"><li class="tab-icon"><img src="' + P + 'img/s4/s41-icon0' + (i ? i + 1 : 5) + '.svg"></li><li class="tab-tit">' + c[0] + '</li><li class="tab-cont">' + c[1] + '</li></ul></div>'; }).join('') +
@@ -202,8 +202,8 @@
     return '<li' + (cls ? ' class="' + cls + '"' : '') + '><a href="' + P + 'img/s4/photo/' + file + '" target="_blank" rel="noopener"><img src="' + P + 'img/s4/photo/' + file + '" alt="' + title + '" loading="lazy"><span class="gal_cap"><b>' + title + '</b>' + cap + '</span></a></li>';
   };
   var facility = {
-    big: 'R&amp;D', bigCls: 's421_big_tit', title: '내ㆍ외부전경', sub: '연구와 정밀 제조가 한곳에서 이루어지는 진주 본사',
-    html: '<section class="s421 gal_page"><div class="gal_intro plant_intro"><p class="c_label">Headquarters</p><p class="c_title">K-SOLUTION 본사ㆍ연구소</p><p class="gal_desc">케이솔루션의 본사는 설계, 해석, 시뮬레이션, 시험평가 등의 연구과정과 생산이 한곳에서 진행되는 곳입니다.</p>' +
+    big: 'R&amp;D', bigCls: 's421_big_tit', title: '내ㆍ외부전경', sub: '케이솔루션 진주 본사 안내',
+    html: '<section class="s421 gal_page"><div class="gal_intro plant_intro"><p class="c_label">Headquarters</p><p class="c_title">K-SOLUTION 본사ㆍ연구소</p><p class="gal_desc">케이솔루션의 본사는 설계, 해석, 시뮬레이션, 시험평가 등의 연구과정과 생산이 진행되는 곳입니다.</p>' +
       '<div class="plant_addr"><span class="lab">Addr.</span><span class="val">' + S.address + '</span><a href="sub.html?p=location">오시는 길</a></div></div>' +
       '<div class="gal_hero"><a href="' + P + 'img/s4/photo/exterior.jpg" target="_blank" rel="noopener"><img src="' + P + 'img/s4/photo/exterior.jpg" alt="외부전경" loading="lazy"><span class="gal_cap"><b>외부전경</b>경남 진주 정촌 산업단지에 자리한 본사 건물</span></a></div>' +
       '<div class="gal_sec"><p class="c_label">Interior</p><p class="c_title">내부전경</p><p class="gal_desc">로비부터 성능검사실, 물류창고까지 정밀 제조와 안전을 위해 설계된 공간입니다.</p><ul class="gal_grid">' +
