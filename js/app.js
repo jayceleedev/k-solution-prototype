@@ -64,10 +64,13 @@
       });
     });
     /* 연구소 원형 탭 */
-    $$('.s412').forEach(function (el, i) {
-      el.addEventListener('mouseenter', function () {
+    $$('.s41-circle').forEach(function (el, i) {
+      var pick = function () {
+        $$('.s41-circle').forEach(function (x, j) { x.classList.toggle('active', i === j); });
         $$('.s412').forEach(function (x, j) { x.classList.toggle('active', i === j); });
-      });
+      };
+      el.addEventListener('mouseenter', pick);
+      el.addEventListener('click', pick);
     });
   }
 

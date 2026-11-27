@@ -132,15 +132,55 @@
   };
 
   /* ---------- R&D ---------- */
-  /* 연구소: 연구 분야 4개가 설계→시뮬레이션→시제→시험→양산으로 이어지는 인포그래픽 + 설명 3단 (사업영역 페이지와 같은 틀) */
+  /* 연구소: 기존 사이트의 원형 도식 틀(가운데 둥근 사진 + 네 개의 원)에 K-SOLUTION 연구 분야를 채운다 */
+  var circles = [
+    ['자율ㆍAI', '스스로 길을 찾고 상황을 판단하는<br>자율 운용 기술과 영상 인식 기술을 연구합니다.<br>한 사람이 여러 대를 다루는<br>통제 기술도 함께 개발합니다.'],
+    ['기체ㆍ구동', '가볍고 튼튼한 기체 구조와<br>구동계를 설계합니다.<br>핵심 부품은 정밀공작기계로<br>사내에서 직접 가공합니다.'],
+    ['임무장비 통합', '센서와 임무장비를 플랫폼에<br>안정적으로 결합하는 마운트와<br>표준 인터페이스를 연구합니다.'],
+    ['체계통합ㆍ시험평가', '공중ㆍ지상ㆍ해상 플랫폼을<br>하나의 체계로 묶고,<br>사내 시험 설비에서<br>성능을 검증합니다.']
+  ];
+  /* 연구소: 설계→양산 흐름을 선으로 그린 도식 (이미지 파일이 아니라 SVG로 직접 그린다) */
+  var labFlow = function () {
+    var steps = [
+      ['설계', '기체 구조와 구동계,', '임무장비 배치를 설계', '<rect x="-12" y="-14" width="24" height="28" rx="2"/><path d="M-6 -6h12M-6 0h12M-6 6h7"/>'],
+      ['해석ㆍ시뮬레이션', '만들기 전에 해석과', '시뮬레이션으로 검증', '<rect x="-15" y="-13" width="30" height="20" rx="2"/><path d="M-9 -2c3 -7 5 -7 8 0s5 7 8 0"/><path d="M-6 13h12M0 7v6"/>'],
+      ['시제 제작', '핵심 부품을 사내에서', '가공해 시제기 제작', '<path d="M0 -15l13 7v15l-13 7-13-7v-15z"/><path d="M-13 -8l13 7 13-7M0 -1v15"/>'],
+      ['시험평가', '사내 시험 설비에서', '성능을 확인하고 보완', '<rect x="-11" y="-11" width="22" height="25" rx="2"/><path d="M-5 -15h10v6h-10z"/><path d="M-6 2l4 4 8-8"/>'],
+      ['양산', '검증한 설계를 같은 건물', '생산 라인으로 전환', '<circle r="5"/><circle r="11"/><path d="M0 -16v5M0 11v5M-16 0h5M11 0h5M-11.3 -11.3l3.5 3.5M7.8 7.8l3.5 3.5M11.3 -11.3l-3.5 3.5M-7.8 7.8l-3.5 3.5"/>']
+    ];
+    var xs = [140, 370, 600, 830, 1060], cy = 210;
+    var nodes = steps.map(function (s, i) {
+      var x = xs[i];
+      return '<g class="ks_node" transform="translate(' + x + ' ' + cy + ')">' +
+        '<line class="drop" x1="0" y1="-136" x2="0" y2="-72"/>' +
+        '<circle class="ring3" r="64"/><circle class="ring2" r="52"/><circle class="core" r="40" fill="url(#ksg' + (i % 2) + ')"/>' +
+        '<g class="ico">' + s[3] + '</g>' +
+        '<circle class="pin" cx="0" cy="-136" r="4"/>' +
+        '<text class="no" x="0" y="-84">0' + (i + 1) + '</text>' +
+        '<text class="tit" x="0" y="104">' + s[0] + '</text>' +
+        '<text class="desc" x="0" y="132">' + s[1] + '</text><text class="desc" x="0" y="154">' + s[2] + '</text></g>';
+    }).join('');
+    var arrows = xs.slice(0, 4).map(function (x) { var m = x + 115; return '<path class="arrow" d="M' + (m - 6) + ' ' + (cy - 7) + 'l7 7 -7 7"/>'; }).join('');
+    var plus = [[40, 26], [1160, 26], [40, 384], [1160, 384]].map(function (p) { return '<path class="plus" d="M' + (p[0] - 6) + ' ' + p[1] + 'h12M' + p[0] + ' ' + (p[1] - 6) + 'v12"/>'; }).join('');
+    return '<section class="sub ks_flowsec"><div class="inner2"><p class="c_label">R&amp;D Flow</p><p class="c_title">설계에서 양산까지</p>' +
+      '<p class="ks_flowdesc">연구소에서 설계한 것을 같은 건물에서 만들고, 시험하고, 양산으로 넘깁니다.</p>' +
+      '<svg class="ks_flowsvg" viewBox="0 0 1200 410" role="img" aria-label="설계, 해석ㆍ시뮬레이션, 시제 제작, 시험평가, 양산으로 이어지는 연구개발 흐름">' +
+      '<defs><linearGradient id="ksg0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a3fb0"/><stop offset="1" stop-color="#002d82"/></linearGradient>' +
+      '<linearGradient id="ksg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f9cff"/><stop offset="1" stop-color="#1f5fd6"/></linearGradient></defs>' +
+      plus +
+      '<line class="rail" x1="140" y1="74" x2="1060" y2="74"/>' +
+      '<rect class="pill" x="455" y="54" width="290" height="40" rx="20"/><text class="pilltx" x="600" y="80">한 건물 안에서 이어지는 연구개발</text>' +
+      '<line class="ticks" x1="70" y1="' + cy + '" x2="1130" y2="' + cy + '"/><line class="base" x1="70" y1="' + cy + '" x2="1130" y2="' + cy + '"/>' +
+      '<circle class="runner" cy="' + cy + '" r="4"><animate attributeName="cx" values="70;1130" dur="7s" repeatCount="indefinite"/></circle>' +
+      arrows + nodes + '</svg></div></section>';
+  };
   var lab = {
     big: 'R&amp;D', bigCls: 's421_big_tit', bigPCls: ' sub4-bigtit', title: '연구소', sub: '설계부터 시험평가까지, 무인체계 기술 혁신을 이끄는 연구개발',
     sub2: '<span>케이솔루션 연구소는 무인기와 로봇의 새로운 제품과 기술을 개발하는 다양한 프로젝트를 수행하고 있습니다.</span><br> 설계와 해석, 시뮬레이션, 시제 제작과 시험평가를 한 건물에서 진행하며,<br class="pc"> 연구 결과가 곧바로 생산으로 이어지도록 같은 건물의 생산 라인과 함께 움직입니다.',
-    html: '<section class="sub s211 ks_lab"><div class="s214 s224 s211-inner"><div class="video-wrap"><div class="ks_info">' + img('lab-info', '연구소 연구개발 흐름도') + '</div></div><div class="cont">' +
-      '<div class="txt" id="t1"><div class="tit"><h4>연구 분야</h4></div><div class="detail"><ul class="list"><li>자율ㆍAI, 기체ㆍ구동, 임무장비 통합, 체계통합이 한 팀으로 일합니다.</li></ul><p>분야별로 따로 개발해 나중에 맞추는 방식이 아니라, 처음부터 하나의 제품을 놓고 함께 설계합니다.<br><a href="sub.html?p=fields" style="display:inline;color:#002d82;text-decoration:underline">연구 분야 자세히 보기</a></p></div></div>' +
-      '<div class="txt" id="t2"><div class="tit"><h4>설계와 시제</h4></div><div class="detail"><ul class="list"><li>설계한 것을 같은 건물에서 바로 만듭니다.</li></ul><p>기체 구조와 구동계, 임무장비 배치를 설계하고 해석과 시뮬레이션으로 먼저 검증합니다.<br>검증한 설계는 정밀공작기계로 핵심 부품을 직접 가공해 시제기로 만듭니다.</p></div></div>' +
-      '<div class="txt" id="t3"><div class="tit"><h4>시험과 양산</h4></div><div class="detail"><ul class="list"><li>만든 것을 바로 시험하고 양산으로 잇습니다.</li></ul><p>사내 시험 설비에서 성능을 확인하고, 고칠 점은 곧바로 다음 시제에 반영합니다.<br>검증을 마친 설계는 같은 건물의 생산 라인으로 넘어갑니다.</p></div></div>' +
-      '</div></div></section>'
+    html: '<section class="s411-wrap ks_lab"><div class="s411">' +
+      circles.map(function (c, i) { return '<div class="s412' + (i ? '' : ' active') + '"><div class="s412-circle"></div><div class="s412-inner">' + img('field-' + (i + 1), c[0]) + '</div><ul class="s412-inner2"><li class="s412-icon"><img src="' + P + 'img/s4/s41-icon0' + (i + 1) + '.svg"></li><li class="s412-tit">' + c[0] + '</li></ul></div>'; }).join('') +
+      circles.map(function (c, i) { return '<div class="s41' + (i + 3) + ' s41-circle' + (i ? '' : ' active') + '"><ul class="s41' + (i + 3) + '-inner circle-inner"><li class="tab-icon"><img src="' + P + 'img/s4/s41-icon0' + (i ? i + 1 : 5) + '.svg"></li><li class="tab-tit">' + c[0] + '</li><li class="tab-cont">' + c[1] + '</li></ul></div>'; }).join('') +
+      '</div></section>' + labFlow()
   };
 
   var lineSec = function (no, title, desc, chips, imgId, rev) {

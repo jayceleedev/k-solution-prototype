@@ -94,6 +94,41 @@ html{background:#fff;color-scheme:light;}
 
 .s214 .ks_info2{margin-top:70px;}
 
+/* 연구소 원형 도식: 가운데 사진을 자체 이미지로 쓰므로 둥글게 자르고 글자가 보이게 어둡게 한다 */
+.ks_lab .s412 .s412-inner img{aspect-ratio:1/1;object-fit:cover;border-radius:50%;filter:brightness(.5) saturate(.9);}
+
+/* 연구소 흐름 도식(SVG) */
+.ks_flowsec{padding:40px 0 150px;}
+.ks_flowsec .inner2{margin:0 auto;}
+.ks_flowsec .c_label{font-family:'Gotham',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#378fff;}
+.ks_flowsec .c_title{font-size:1.9rem;font-weight:700;margin:8px 0 14px;color:#111;}
+.ks_flowdesc{font-size:.95rem;color:#555;margin-bottom:30px;}
+.ks_flowsvg{width:100%;height:auto;display:block;overflow:visible;}
+.ks_flowsvg text{font-family:'Pretendard',sans-serif;text-anchor:middle;}
+.ks_flowsvg .plus{stroke:#c3cde0;stroke-width:1;fill:none;}
+.ks_flowsvg .rail{stroke:#9fb2d8;stroke-width:1;}
+.ks_flowsvg .pill{fill:#002d82;}
+.ks_flowsvg .pilltx{fill:#fff;font-size:15px;font-weight:600;letter-spacing:-.01em;}
+.ks_flowsvg .base{stroke:#9fb2d8;stroke-width:1;}
+.ks_flowsvg .ticks{stroke:#c9d3e6;stroke-width:9;stroke-dasharray:1 11;}
+.ks_flowsvg .runner{fill:#378fff;}
+.ks_flowsvg .arrow{fill:none;stroke:#002d82;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.ks_flowsvg .drop{stroke:#9fb2d8;stroke-width:1;stroke-dasharray:2 5;}
+.ks_flowsvg .pin{fill:#fff;stroke:#002d82;stroke-width:1.5;}
+.ks_flowsvg .ring3{fill:#fff;stroke:#9fb2d8;stroke-width:1;stroke-dasharray:1.5 6;}
+.ks_flowsvg .ring2{fill:#fff;stroke:#002d82;stroke-opacity:.28;stroke-width:1;}
+.ks_flowsvg .core{filter:drop-shadow(0 6px 10px rgba(0,45,130,.25));transition:transform .3s;transform-box:fill-box;transform-origin:center;}
+.ks_flowsvg .ico{fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.ks_flowsvg .no{font-family:'Gotham',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;fill:#378fff;}
+.ks_flowsvg .tit{font-size:21px;font-weight:700;fill:#111;}
+.ks_flowsvg .desc{font-size:14.5px;fill:#666;}
+.ks_flowsvg .ks_node:hover .core{transform:scale(1.08);}
+.ks_flowsvg .ks_node:hover .ring3{stroke:#378fff;}
+@media screen and (max-width:1000px){
+  .ks_flowsec .inner2{width:92%;overflow-x:auto;}
+  .ks_flowsvg{min-width:900px;}
+}
+
 /* 제품 페이지 */
 .s30 .s30_img_box .img_placeholder img{max-width:92%;max-height:340px;object-fit:contain;}
 .s30 .ks_wide{margin:60px 0 0;}
